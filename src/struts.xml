@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<!-- 开发模式，在修改Struts文件时不需要重启 -->
+<constant name="struts.devMode" value="true"></constant>
+<package name="foritou" extends="json-default">          
+<global-results>
+<result  name="aindex">/WEB-INF/main/aindex.jsp</result>
+
+<result name="stream" type="stream">
+<param name="inputName">inputStream</param> 
+</result>
+</global-results>
+<action name="company_*" class="companyAction" method="{1}">
+<result name="goURL" type="redirect">${#session.goURL}</result>
+<result name="index">/company/index.jsp</result>
+<result name="clogin">/company/login.jsp</result>
+<result name="enroll1">/company/enroll1.jsp</result>
+<result name="enroll2">/company/enroll2.jsp</result>
+<result name="enroll3">/company/enrollSuccess.jsp</result>
+<!-- 必须先添加json包，然后继承json-default -->
+<result name="jsonMap" type="json">
+<!-- 要转换成json对象数据 -->
+<param name="root">pageMap</param>
+</result>
+</action>
+<action name="shop_*" class="shopAction" method="{1}">
+<result name="index">/WEB-INF/shop/index.jsp</result>
+<result name="goURL" type="redirect">${#session.goURL}</result>
+<result name="slogin">/WEB-INF/shop/login.jsp</result>
+<result name="enroll"  type="redirect">/WEB-INF/shop/index.jsp</result>
+<result name="error">/WEB-INF/shop/error.jsp</result>
+<result name="detail" type="redirect">/shop/detail.jsp</result>
+<result name="companyLook" type="redirect">/company/detail.jsp</result>
+<result name="shopinfo_update">/WEB-INF/shop/index.jsp</result>
+<!-- 必须先添加json包，然后继承json-default -->
+<result name="jsonMap" type="json">
+<!-- 要转换成json对象数据 -->
+<param name="root">pageMap</param>
+<!-- 配置黑名单，过滤不需要的选项,支持正则表达式 \d 一个数字，+一个或多个   ？0或1  *1或多  [ABC]ABC中的一个  .任意字符 -->
+</result>
+</action>
+
+<action name="shopimage_*" class="shopimageAction" method="{1}">
+<result name="jsonList" type="json">
+<param name="root">jsonList</param>
+<param name="excludeProperties">
+<!-- [0].account,[1].pass -->
+<!-- \[\d+\]\.href -->
+
+</param>
+</result>
+</action>
+<action name="usernotes_*" class="usernotesAction" method="{1}">
+<result name="usernotes">/WEB-INF/shop/purchaseNotes.jsp</result>
+</action>
+<action name="store_*" class="storeAction" method="{1}">
+<result name="jsonList" type="json">
+<param name="root">jsonList</param>
+<param name="excludeProperties">
+<!-- [0].account,[1].pass -->
+<!-- \[\d+\]\.href -->
+</param>
+</result>
+<result name="jsonMap" type="json">
+<!-- 要转换成json对象数据 -->
+<param name="root">pageMap</param>
+<!-- 配置黑名单，过滤不需要的选项,支持正则表达式 \d 一个数字，+一个或多个   ？0或1  *1或多  [ABC]ABC中的一个  .任意字符 -->
+</result>
+<result name="stream" type="stream">
+<param name="inputName">inputStream</param>
+</result>
+</action>
+<action name="discount_*" class="discountAction" method="{1}">
+<result name="jsonList" type="json">
+<param name="root">jsonList</param>
+<param name="excludeProperties">
+<!-- [0].account,[1].pass -->
+<!-- \[\d+\]\.href -->
+</param>
+</result>
+<result name="stream" type="stream">
+<param name="inputName">inputStream</param>
+</result>
+<result name="jsonMap" type="json">
+<!-- 要转换成json对象数据 -->
+<param name="root">pageMap</param>
+<!-- 配置黑名单，过滤不需要的选项,支持正则表达式 \d 一个数字，+一个或多个   ？0或1  *1或多  [ABC]ABC中的一个  .任意字符 -->
+</result>
+</action>
+<action name="size_*" class="sizeAction" method="{1}">
+<result name="jsonList" type="json">
+<param name="root">jsonList</param>
+<param name="excludeProperties">
+<!-- [0].account,[1].pass -->
+<!-- \[\d+\]\.href -->
+</param>
+</result>
+<result name="stream" type="stream">
+<param name="inputName">inputStream</param>
+</result>
+</action>
+<action name="sorder_*" class="sorderAction" method="{1}">
+<result name="showCar">/company/showCar.jsp</result>
+
+
+</action>
+
+
+<!-- 用来完成系统请求转发的Action,所有的请求度交给execute -->
+<action name="send_*_*" class="sendAction">
+<result name="send">/WEB-INF/{1}/{2}.jsp</result>
+</action>
+</package>
+</struts>    
