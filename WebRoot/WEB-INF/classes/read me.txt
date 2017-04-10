@@ -1,0 +1,17 @@
+1：注解与XML的比较
+1.1xml在开发的时候比较慢，代码冗余高在更新java类，xml不会同步更新，但是维护的时候查看类之间的关系比较方便
+1.2：注解开发速度快，维护速度慢
+1.3配置注解
+2.关于动态代理:'
+Spring 的AOP是基于动态代理模式，有两种：：基于JDK Proxy代理，此方法适合有接口的类，如果没有接口则生成的AOP就是cglib代理
+2.hibernate查询策略
+hibernate中一级缓存(默认存在)不是用来提升性能的，是用来处理事务的，二级缓存为sessionfactory缓存，对所有的session都有效，生命周期与sessionFactory相同
+（sessionfactory是单例，而且项目启动的时候就会创建）
+有两种查询方式，第一条为Session 第二种为hql
+2.1：session.save() update() delete() get()：此方式仅仅操作一条记录,默认不用任何配置就支持二级缓存
+ 因此read-only对session是生效的，在session中，如果二级缓存中配置了read-only则session.update和delete操作会失败
+ 但是sava()和get load()是成功的
+ 2.2此方式是默认用来操作多条记录，list() executeUpdate(),此方式二级缓存的配置read-only默认是无效的，注意hql是没有save方法的
+ 如果需要插入数据只能调用session.save
+list()查询多个（只存不取，交给二级缓存的是给get load使用）
+executeUpdate:也是不支持二级缓存的，直接到数据库更新，huibernate会保证数据库与缓存同步
