@@ -1,6 +1,0 @@
-function setType(){
-	$("#industry").html();
-	
-	
-	
-}
