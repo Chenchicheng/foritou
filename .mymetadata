@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="foritou"
+  id="myeclipse.1474628421318"
+  context-root="/foritou"
+  j2ee-spec="6.0"
+  archive="foritou.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
