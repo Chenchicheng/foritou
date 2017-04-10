@@ -1,0 +1,136 @@
+body {
+	background-color: #FFFFFF;
+}
+
+.signin {
+	width:390px;
+	height:479px;
+	margin:0 auto;
+	position:absolute;
+	
+	left:75%;
+	margin-top:50px;
+	margin-left:-238px;
+    background: url(../img/login_bg.png) ;
+    background-position-y: 0px;
+}
+.signin-head {
+	margin:0 auto;
+	padding-top:-10px;
+	padding-right: 30px;
+	width:330px;
+	height:120px;
+	margin-top: 50px;
+	margin-bottom: -10px;
+	color:white;
+    font-size:23px;
+}
+.signin-bottom{
+	    margin-top: -14px;
+        margin-left: 31px;
+}
+.form-signin {
+  max-width: 330px;
+  margin: 0 auto;
+height: 231px;
+}
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  margin-top: 20px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: 14px;
+
+  background: url(../img/login_user.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+
+  background: url(../img/login_pas.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+.form-signin button {
+
+}
+.signin-bottom a{
+  color: white;
+  font-size: 16px;
+}
+
+.signin-bottom p{
+  height:20px;
+  margin-top: 30px;
+  margin-left: 150px;
+ 
+}
+.message{
+	color:red;
+	text-align:center;
+    visibility: visible;
+    font-size: 16px;
+    display: block;
+    margin-top: -59px;
+    height: 20px;
+    margin-bottom: -6px;
+}
+
+.box{
+	height: 20px;
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+.head{
+	height:50px;
+	margin-top: 20px;
+	
+}
+
+.head a{
+	color:black;
+	font-size:25px;
+	margin-left: 150px;
+	text-decoration:none;
+}
+.head button{
+	margin-left: 830px;
+	height:30px;
+	width:150px;
+	color:white ;
+	font-size:16px;
+	background-color:#F0AD4E;
+	 border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+	border: 0;
+}
+.middle{
+	height:590px;
+	background: url(../img/login_bg_0.jpg) ;
+}
+.bottom{
+	background-color: #D6DDE9;
+	height:50px;
+}
+.bottom a{
+	padding: 15px;
+}
+

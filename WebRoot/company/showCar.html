@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>购物车</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<script>	
+        $(document).ready(function () {
+        	var i=0;
+        	
+        	$(".ui-checkbox").click(function(){
+        		if($(this).attr("checked")){
+        			$(".itemlist").each(function(){
+        				$(this).attr("checked",true);
+        			});
+        			 $(".btn").css({
+					"background-color":"#ff6537",
+					"border-color": "#ff6537",
+				});
+        		}else{
+        			$(".itemlist").each(function(){
+        				if($(this).attr("checked")){
+        				$(this).attr("checked",false);
+        				}
+        			})
+        		}
+        		GetCount();
+        		
+        	});
+        	
+        	$(".itemlist").click(function(){
+        		if ($(this).attr("checked")) {
+		            i++;
+		        $(".btn").css({
+					"background-color":"#ff6537",
+					"border-color": "#ff6537",
+				});
+		        }else{
+		        $(".btn").css({
+					"background-color":"#999",
+					"border-color": "#999",
+				});
+		        }
+				if(i==$(".itemlist").length){
+					$(".ui-checkbox").attr("checked",true);
+				}
+				GetCount();
+				
+        	});
+        function GetCount() {
+				var conts = 0;
+				var aa = 0;
+				$(".itemlist").each(function () {
+					if ($(this).attr("checked")) {
+						for (var i = 0; i < $(this).length; i++) {
+							conts += parseInt($(this).val());
+							aa += 1;
+						}
+					}
+				});
+				$("#J-cart-amount").text(aa);
+				$("#J-cart-total").html((conts).toFixed(2));
+				
+			}	
+        $(function () {
+			var t = $("#quantities");
+			$(".itemplus").click(function () {
+				t.val(parseInt(t.val()) + 1)
+				setTotal(); GetCount();
+			})
+			$(".minus").click(function () {
+				if(t.val()>1){
+					t.val(parseInt(t.val()) - 1)
+					setTotal(); GetCount();
+				}
+			})
+			function setTotal() {
+	
+				$(".J-total").val(parseInt(t.val()) * 90);
+			}
+			setTotal();
+			});
+	    
+        });
+		</script>
+
+	</head>
+	<body>
+	<div id="bd">
+		<div id="header">
+			
+			
+		</div>
+	<div id="content">
+     <form  id="J-cart-form" class="common-form form ">
+    	
+
+        <div class="mainbox">
+            <div class="cart-head cf">
+                <div class="cart-status">
+                    <i class="cart-status-icon status-1"></i>
+                     <span class="cart-title">我的购物车</span>
+                    <span title="您的购物车内有1种商品，共可放20种商品" class="number">
+                        <em class="count-in-carts">1</em>/20
+                    </span>
+                </div>
+                <div class="login-bar">
+                    <span>现在</span>
+                    <a href="#">登录</a>
+                    <span>，你的商品将被保存到购物车</span>
+                </div>
+            </div>
+
+            <div class="table-section summary-table" >
+                <table cellspacing="0" >
+                    <tbody ><tr >
+                        <th width="60" >
+                            <input type="checkbox" id="cart-selectall" class="ui-checkbox">
+                            <label for="cart-selectall" class="cart-select-all"  >全选</label>
+                        </th>
+                        <th width="auto" class="desc">项目</th>
+                        <th width="70">单价</th>
+                        <th width="150">数量</th>
+                        <th width="70" class="total">小计</th>
+                        <th width="80">操作</th>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="cartItem">
+                            <table cellspacing="0" >
+                            <tbody>
+                            	<tr>
+                                <td width="60" rowspan="1" class="select-cartItem">
+                                        <input type="checkbox" class="itemlist" name="cartItems">
+                                        <label>&nbsp;</label>
+                                </td>
+                                <td width="auto" class="desc">
+                                    <a href="http://nc.meituan.com/deal/41046934.html" target="_blank" title="佐祐时尚经典餐厅：100元代金券1张，全场通用，可叠加使用" gaevent="cart/deal">
+                                        <img src="img/cattle.png" width="63" height="39">
+                                        <span>佐祐时尚经典餐厅：100元代金券1张，全场通用，可叠加使用</span>
+                                    </a>
+                                </td>
+                                <td width="70" class="price">
+                                    ¥<span class="J-price">90</span>
+                                </td>
+                                <td width="150" class="saleNum deal-component-quantity">
+                                    <div class="component-cart-quantity mt-component--booted">
+                                    	<div class="cart-quantity">
+                                           <button class="minus"  type="button">-</button>
+                                           <input type="text"  class="f-text J-quantity J-cart-quantity" id="quantities" maxlength="4" value="1">
+                                           <button for="J-cart-add" class="itemplus" data-action="+"  type="button" >+</button>
+										</div>
+									</div>
+                                </td>
+                                <td width="70" rowspan="1" class="money total">
+                                    ¥<span class="J-total">90</span>
+                                        <br>
+                                </td>
+                                <td width="80" class="op list-delete">
+                                    <a class="delete" href="#">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="60" rowspan="1" class="select-cartItem">
+                                        <input type="checkbox" class="itemlist" name="cartItems">
+                                        <label>&nbsp;</label>
+                                </td>
+                                <td width="auto" class="desc">
+                                    <a href="http://nc.meituan.com/deal/41046934.html" target="_blank" title="佐祐时尚经典餐厅：100元代金券1张，全场通用，可叠加使用" gaevent="cart/deal">
+                                        <img src="img/cattle.png" width="63" height="39">
+                                        <span>佐祐时尚经典餐厅：100元代金券1张，全场通用，可叠加使用</span>
+                                    </a>
+                                </td>
+                                <td width="70" class="price">
+                                    ¥<span class="J-price" >90</span>
+                                </td>
+                                <td width="150" class="saleNum deal-component-quantity">
+                                    <div class="component-cart-quantity mt-component--booted">
+                                    	<div class="cart-quantity">
+                                           <button class="minus"  type="button">-</button>
+                                           <input type="text"  class="f-text J-quantity J-cart-quantity" id="quantities" maxlength="4" value="1">
+                                           <button for="J-cart-add" class="itemplus" data-action="+"  type="button" >+</button>
+										</div>
+									</div>
+                                </td>
+                                <td width="70" rowspan="1" class="money total">
+                                    ¥<span class="J-total">90</span>
+                                        <br>
+                                </td>
+                                <td width="80" class="op list-delete">
+                                    <a class="delete" href="#">删除</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td colspan="4" class="extra-fee total-fee">
+                            <span class="amount">
+                                已选<strong class="amount__num" id="J-cart-amount" >0</strong>件商品
+                            </span>
+                            <strong>应付总额</strong>：
+                            <span class="inline-block money">
+                                ¥<strong id="J-cart-total">0</strong>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <div class="form-submit">
+              	<button type="button" title="" class="checkout fr"
+							style="background-color: #f38256;">
+							<font><a href="${foritou}/company/pay/confirm.jsp">订单确认</a></font>
+							
+						</button>
+						<button type="button" title="" class=" fr">
+							<font><font>清空购物车</font>
+							</font>
+						</button>
+						<button type="button" title="" class="continue fr">
+							<font><a href="${foritou}/company/index.jsp">继续选购</a>
+							</font>
+						</button>
+            </div>
+            <!--<input t class="btn btn-large btn-buy" name="buy" value="确认订单">  -->
+        </div>
+    </form>
+    
+</div>
+<div id="bottom">
+   		<div class="site-outer">
+        <div class="site-info">
+            <div class="site-info__item">
+                <h3 style="color: #666;">获取更新</h3>
+                <ul>
+                    <li><a rel="nofollow" href="#">邮件订阅</a></li>
+                    <li><a href="#">iPhone/Android</a></li>
+                    <li><a rel="nofollow" href="#" target="_blank">QQ空间</a></li>
+                    <li><a rel="nofollow" href="#" target="_blank">福利淘新浪微博</a></li>
+                    <li><a href="#" target="_blank">sitemap</a></li>
+                    <li><a rel="#" target="_blank">RSS订阅</a></li>
+                </ul>
+            </div>
+            <div class="site-info__item">
+                <h3 style="color: #666;">商务合作</h3>
+                <ul>
+                    <li><a rel="nofollow" href="#">商家合作</a></li>
+                    <li><a rel="nofollow" href="#" gaevent="footer/mmp">福利淘商家营销平台</a></li>
+                    <li><a rel="nofollow" href="#">到店餐饮代理商招募</a></li>
+                    <li><a rel="nofollow" href="#">市场合作</a></li>
+                    <li><a rel="nofollow" href="#" target="_blank">福利淘联盟</a></li>
+                    <li><a rel="nofollow" target="_blank" href="#">福利淘云</a></li>
+                    <li><a rel="nofollow" target="_blank" href="#">廉正邮箱</a></li>
+                    <li><a rel="nofollow" target="_blank" href="#">餐饮开放平台</a></li>
+                </ul>
+            </div>
+            <div class="site-info__item">
+                <h3 style="color: #666;">公司信息</h3>
+                <ul>
+                    <li><a rel="nofollow" href="#">关于福利淘</a></li>
+                    <li><a rel="nofollow" href="#">福利淘承诺</a></li>
+                    <li><a rel="nofollow" href="#">媒体报道</a></li>
+                    <li><a rel="nofollow" href="#" gaevent="footer/job">加入我们</a></li>
+                    <li><a rel="nofollow" href="#">法律声明</a></li>
+                    <li><a rel="nofollow" href="#">用户协议</a></li>
+                    <li><a rel="nofollow" href="#">福利淘点评餐饮安全管理办法</a></li>
+                    <li><a href="#">营业执照</a></li>
+                </ul>
+            </div>
+            <div class="site-info__item">
+                <h3 style="color: #666;">用户帮助</h3>
+                <ul>
+                    <li><a rel="nofollow" class="J-selfservice-tab" data-tab="0" href="#">申请退款</a></li>
+                    <li><a rel="nofollow" class="J-selfservice-tab" data-tab="2" href="#">查看福利淘券密码</a></li>
+                    <li><a rel="nofollow" href="#">常见问题</a></li>
+                    <li><a rel="nofollow" href="#">开放API</a></li>
+                    <li><a rel="nofollow" href="#">反诈骗公告</a></li>
+                </ul>
+            </div>
+            <div class="site-info__item site-info__item--service">
+		<div class="site-info-service-content">
+                    <i class="hotline"></i>
+                    <p class="contact-name">客服电话</p>
+                    <p class="contact-info">
+		        <span class="contact-numbers">10107888</span>
+		        <span class="contact-time">(9:00-23:00)</span>
+		    </p>
+                    <p class="desc">退款、退换货、查看福利淘券</p>
+                    <p><a href="#" class="selfservice-link" gaevent="footer/selfservice">参考教程，轻松搞定!</a></p>
+	        </div>
+            </div>
+	    <div class="clear"></div> 
+	</div>
+    </div>
+   </div>
+</div>
+	</body>
+</html>

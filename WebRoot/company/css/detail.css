@@ -1,0 +1,264 @@
+@CHARSET "UTF-8";
+   body{
+   margin:0px;
+   }
+   #sum1{
+   width:980px;
+   margin:0px;
+   margin-left:185px;
+   }
+   #tips{
+   	height:30px;
+   	background: #f9f9f9;
+   }
+   #header1{
+   height:145px;
+   margin:0px;
+   }
+   #header-top{
+   	height:105px;
+   }
+   #header-bottom{
+   	height:40px;
+   	background:#ff6537;
+   	font-size: 16px;
+    z-index: 40;
+   }
+   #site-logo{
+   	width:82px;
+   	height: 54px;
+   	margin-top:-20px;
+   	padding: 3px;
+   	float: left;
+   }
+   .site-name{
+   	font-size: 26px;
+   	font-weight: 800;
+   }
+   .site-addr{
+   	font-size: 15px;
+   	font-weight: 400;
+   	 color: #999;
+   }
+   #city-info{
+   	width:123px;
+   	float: left;
+   	margin-top: 20px;
+   	padding: 5px;
+   }
+   .city-info-name{
+   	font-size: 18px;
+    font-weight: 700;
+    color: #000;
+   }
+   .city-info-toggle{
+   	border: 1px solid #eee;
+    padding: 2px 5px;
+    font-size: 12px;
+    color: #999;
+    background: #fff;
+   }
+   #search-box{
+   	float: left;
+    position: relative;
+    width:490px;
+    height:72px;
+    margin: 21px 0 0 30px;
+   
+  }
+   .search-box-left{
+   
+   	float: left;
+    margin: 0;
+    padding: 6px 10px;
+    border: 2px solid #ff6537;
+    border-right: none;
+    border-radius: 0;
+    width: 376px;
+    
+    line-height: 26px;
+    font-size:15px;
+    outline:none;
+   }
+   .search-box-right{
+   	float: left;
+    width: 65px;
+    margin: 0;
+    height: 42px;
+    line-height: 42px;
+    border: none;
+    color: #fff;
+    background:#ff6537;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 0;
+    
+    
+   }
+   .site-commitment {
+    float: right;
+    margin-top: 29px;
+    width:230px;
+    }
+    .commitment-item {
+    float: right;
+    display: block;
+    padding-left: 30px;
+    height: 42px;
+    }
+    .commitment-item2 {
+    float: right;
+    display: block;
+    padding-left: 20px;
+    height: 42px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    }
+    .alltypes{
+    padding-left: 15px;
+    width: 231px;
+    height: 40px;
+    line-height: 38px;
+    cursor: default;
+    text-align: left;
+    font-weight: 400;
+    color: white;
+    }
+    .down{
+    margin-top: 20px;
+    margin-left: 120px;
+    font-size: 18px;
+    
+    }
+    .site-navbar{
+    	margin-top:-40px;
+    	width:724px;
+    	
+    margin-left: 246px;
+    border-bottom: none;
+    padding-left: 0;
+  height:40px;
+  
+     }
+     .navbar-item-w{
+     	float: left;
+     }
+     li{
+     	list-style: none;
+     }
+     .navbar-item {
+    position: relative;
+    display: inline-block;
+    padding: 0px 0 0 20px;
+    min-width: 54px;
+    line-height:38px;
+    text-align: center;
+    font-weight: 700;
+   color:#fff;
+ margin-left:10px;
+    }
+     .navbar-item a{
+      width: 80px;
+    height: 40px;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    display:inline-block;
+    text-decoration: none;
+     }
+     .navbar-item a:hover{
+     background:#e83500;
+     }
+	 #middle{
+		 margin-top:20px;
+		 border:1px solid #ddd;
+	 }
+    #middle-top{
+    margin:0px;
+    padding: 0px;
+    margin-top:10px;
+	padding-left:20px;
+    }
+	 #middle-top a{
+		 border:1px solid #ff6537;
+		 display:inline-block;
+		 height:30px;
+		 width:50px;
+		 text-align:center;
+		 line-height:30px; 
+	 }
+    .bread-nav{
+    margin: 0 0 10px;
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    }
+	
+	.filter-strip-list a{
+		text-decoration:none;
+		color:#666;
+		font-size:14px;
+	}
+	.filter-strip-list {
+		padding-left:80px;
+		padding-top:15px;
+		border-top:1px dotted #ddd;
+	}
+	.filter-strip-list li {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+	list-style:none;
+	}
+	 .filter-sortbar {
+    margin-top: 8px;
+    padding: 0;
+    height: 29px;
+	width:980px;
+	border:1px solid #ddd;
+	}
+	 .button-strip {
+    margin: 0 10px 0 0;
+    font-size: 12px;
+    line-height: 19px;
+    text-align: center;
+	display:inline-block;
+	
+	 }
+	 .button-strip a{
+		 display:inline-block;
+		 text-decoration:none;
+		 color:#666;
+		 width:100px;
+		  height: 29px;
+		  line-height:30px;
+		 border-right:1px solid #ddd;
+	 }
+	.content{
+		width:754px;
+		float:left;
+		padding:0;
+		margin-top:10px;
+	}
+	.deal-tile{
+		margin-bottom:16px;
+		height:380px;
+		border:1px solid #eee;
+		z-index:1;
+	}
+	.deal-left{
+		float:left;
+	}
+	.deal-right{
+		float:right;
+	}
+	.deal-cover img{
+		display:block;
+	}
+	
+	
+	
+	
+	
+ 

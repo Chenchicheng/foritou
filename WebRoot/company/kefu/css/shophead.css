@@ -1,0 +1,114 @@
+body{font-family:微软雅黑;}
+#header{
+    height:30px;
+   	background: #f9f9f9;
+   	margin:0px;
+   	border-bottom: 1px solid #eee;
+   	font-size:12px;
+   
+    }
+     .top{
+    width:980px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left:175px;	
+    }
+#sum{
+  	width: 980px;
+  	 margin-left:185px;
+  	height:80px;
+    border-bottom: 1px solid #eee;
+    padding-bottom:20px;
+  }
+  
+   #site-logo{
+   	width:82px;
+   	height: 54px;
+   	margin-top:-20px;
+   	padding: 3px;
+   	float: left;
+   }
+   
+   
+   .site-commitment {
+    float: ;
+    margin-top: 29px;
+  
+    }
+    .site-commitment2 {
+    float: right;
+    margin-top: 69px;
+    margin-right:-230px;
+    }
+    .commitment-item {
+    float: right;
+    display: block;
+    padding-left: 30px;
+    height: 42px;
+    }
+    .commitment-item2 {
+    float: right;
+    display: block;
+    padding-left: 20px;
+    height: 42px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    }	
+ .redColor{
+    color:#ff6537 !important;
+   }
+   .top  span, .top  a{
+	color: #999;
+	margin: 0px 5px 0px 5px;
+   }
+   .top a:hover{
+    color: #ff6537;
+	}
+	.pull-right {
+	float:right;
+	color: #999;
+	margin:0px;
+	margin-left:50px;
+	}
+	.pull-right  li{
+	margin: -5px 0px 0px 0px;
+	padding-right:10px;
+	float:left;
+	list-style: none;
+	height:30px;
+	display:block;
+	line-height:200%;
+	text-align:center;
+	
+	}
+	.pull-right  li:hover{
+	background:#fff;
+	}
+	.pull-right  li:hover ul{
+	display:block;
+	}
+	.pull-right  a{
+	text-decoration: none;
+	}
+	.pull-right li ul{
+	position: absolute;
+	margin-left:-50px;
+	margin-top:10px;
+	width:85px;
+	display:none;
+	
+	}
+	.pull-right li ul li{
+	width:85px;
+	height:20px;
+	
+	background:#fff;
+	float:none;
+	padding:5px;
+	border-right:none;
+	}
+	.pull-right li ul li:hover{
+	background:#f7f7f7;
+	}
+	
