@@ -1,5 +1,7 @@
 package cn.foritou.service.impl;
 import java.util.List;
+
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 import cn.foritou.model.Forder;
 import cn.foritou.model.Sorder;
@@ -66,6 +68,18 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder>  implements Sorde
 			}
 		}
 		return forder;
+	}
+
+	@Override
+	public List<Object> findCompanyAndMoney() {
+	 String sql = "select c.companyname as companyname,SUM(total) as sum from forder f "+
+						"left outer join company c on c.id = f.cid "+
+						"right outer join sorder s on s.fid = f.id "+
+						"group by cid";
+
+	//List<Object> list = (List<Object>) this.getHibernateTemplate().find(sql);
+    Query query = getSession().createSQLQuery(sql);
+	return query.list();
 	}
 
 }

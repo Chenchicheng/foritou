@@ -3,9 +3,12 @@ package cn.foritou.action;
 import java.io.ByteArrayInputStream;
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+
+import com.opensymphony.xwork2.ActionContext;
 
 import cn.foritou.model.Company;
 import cn.foritou.model.Forder;
@@ -64,5 +67,9 @@ public class SorderAction extends BaseAction<Sorder>{
 		session.put("forder", forder);
 		return  "delete";
 	}*/
-	
+	public String querySale(){
+	    List<Object> jsonList = sorderService.findCompanyAndMoney();
+	    ActionContext.getContext().getValueStack().push(jsonList);
+		return "jsonList";
+	}
 }

@@ -16,4 +16,5 @@ public interface SorderService extends BaseService<Sorder>{
 	public Sorder modelToSorder(Sorder sorder);
 	//更新购物车
 	public Forder updateSorder(Forder forder, Sorder sorder);
+	public List<Object> findCompanyAndMoney();
 }

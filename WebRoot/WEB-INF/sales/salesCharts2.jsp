@@ -22,11 +22,11 @@
                     myChart.setBarSpacingRatio(45);
                     myChart.setBarOpacity(1);
                     myChart.setBarBorderWidth(1);
-                    myChart.setTitle('商城销售报表');
+                    myChart.setTitle('商家销售报表');
                     myChart.setTitleFontSize(10);
                     myChart.setTitleColor('#607985');
                     myChart.setAxisValuesColor('#607985');
-                    myChart.setAxisNameX('商品名称', false);
+                    myChart.setAxisNameX('公司名称', false);
                     myChart.setAxisNameY('销量', true);
                     myChart.setGridOpacity(0.8);
                     myChart.setAxisPaddingLeft(50);
