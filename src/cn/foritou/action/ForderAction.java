@@ -90,7 +90,7 @@ public class ForderAction extends BaseAction<Forder>{
 				Wxshop ws=new Wxshop();
 			    ws.setCompany(company);
 			    ws.setShop(sorder.getShop());
-			    String pic=shopimageService.getImageListbyType("首页展示", sorder.getShop().getId()).get(0).getHref();
+			    String pic=shopimageService.getImageListbyType("1", sorder.getShop().getId()).get(0).getHref();
 			    ws.setShopimage(pic);
 			    ws.setShoptype(sorder.getShop().getShoptype().getTypename());
 			    ws.setDiscount(sorder.getDiscount());

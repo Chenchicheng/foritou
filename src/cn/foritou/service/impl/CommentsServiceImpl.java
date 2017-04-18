@@ -1,9 +1,11 @@
 package cn.foritou.service.impl;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Hibernate;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 
 import cn.foritou.model.Comments;
@@ -43,14 +45,14 @@ public class CommentsServiceImpl extends BaseServiceImpl<Comments>  implements C
 
 	@Override
 	public List<Comments> get(int eid, int sid, Timestamp now,
-			Timestamp lastMonth,int state) {
+			Timestamp lastMonth,BigDecimal state) {
 		// TODO Auto-generated method stub
 		String hql="from Comments where employee.id=:eid and sid=:sid and date between :now and :lastMonth and state=:state";
 		return getSession().createQuery(hql)
                  .setInteger("eid", eid)
                  .setInteger("sid", sid)
                  .setTimestamp("now", now)
-                 .setInteger("state", state)
+                 .setBigDecimal("state", state)
                  .setTimestamp("lastMonth", lastMonth)
 				.list();
 	}
@@ -71,6 +73,40 @@ public class CommentsServiceImpl extends BaseServiceImpl<Comments>  implements C
 	@Override
 	public int getCommentsTotal(Integer id) {
 		return getBysid(id).size();
+	}
+
+
+	@Override
+	public List<Object> findGoodComments() {
+		 String sql = "select s.name as shopname,sum(state) as sum from comments c "+ 
+					  "left outer join shop s on s.id = c.sid "+
+                      "where c.state='1' "+
+					  "group by sid ";
+		Query query = getSession().createSQLQuery(sql);
+		return query.list();
+	
+	}
+
+
+	@Override
+	public List<Object> findGeneralComments() {
+		 String sql = "select s.name as shopname,count(state) as sum from comments c "+ 
+				  "left outer join shop s on s.id = c.sid "+
+                 "where c.state='2' "+
+				  "group by sid ";
+		 Query query = getSession().createSQLQuery(sql);
+			return query.list();
+	}
+
+
+	@Override
+	public List<Object> findBadComments() {
+		 String sql = "select s.name as shopname,count(state) as sum from comments c "+ 
+				  "left outer join shop s on s.id = c.sid "+
+                 "where c.state='3' "+
+				  "group by sid ";
+		 Query query = getSession().createSQLQuery(sql);
+			return query.list();
 	}
 
 

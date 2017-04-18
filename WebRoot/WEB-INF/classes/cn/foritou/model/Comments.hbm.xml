@@ -29,7 +29,7 @@
             <column name="reply" length="5000">
             </column>
         </property>
-        <property name="state" type="java.lang.Integer">
+        <property name="state" type="java.math.BigDecimal">
             <column name="state" />
         </property>
     </class>

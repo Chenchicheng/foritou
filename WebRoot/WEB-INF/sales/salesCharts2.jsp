@@ -12,12 +12,12 @@
             $("#submit").click(function(){
                 var colorArr = ['#44A622','#A7B629','#CAD857','#E4DB7B','#ECDE49','#ECC049','#EC9649','#D97431','#D95531','#E4DB7B'];
                 //发送Ajax请求
-                $.post($("#sale").val(), {number:$("#number").val()}, function(data){
+                $.post($("#sale").val(), function(data){
 
                     var myChart = new JSChart('chart_container', $("#type").val(), '');
                     myChart.setDataArray(data);
                     myChart.colorize(colorArr.slice(0,data.length));//选择几个就显示几个
-                    myChart.setSize(100*$("#number").val(), 400);
+                    myChart.setSize(500, 400);
                     myChart.setBarValues(false);
                     myChart.setBarSpacingRatio(45);
                     myChart.setBarOpacity(1);

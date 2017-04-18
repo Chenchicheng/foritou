@@ -71,6 +71,10 @@
 <div class="b3">
 <p style="color:#ff6537;font-size:45px;font-weight:600;">评价</p>
 <textarea name="comment"></textarea>
+<p style="color:#ff6537;font-size:45px;font-weight:600;">
+<input type="checkbox" value="1" name="state" style="height: 30px;width: 30px"> 好评
+<input type="checkbox" value="2" name="state" style="height: 30px;width: 30px"> 中评
+<input type="checkbox" value="3" name="state" style="height: 30px;width: 30px"> 差评</p>
 </div>
 <input type="submit" class="submit" value="提交"/>
 </form>

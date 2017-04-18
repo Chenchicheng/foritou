@@ -1,4 +1,5 @@
 package cn.foritou.util;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -78,8 +79,8 @@ public class ProductTimerTask extends TimerTask{
 		for(Shop shop:shopService.queryByType(shoptype.getId(), 2, 8)){
 		    Product product=productService.getbysid(shop.getId());
 			Discount discount=discountService.getDiscount(shop.getId(),1);//默认就是规模为0~50人的中小企业
-		  System.out.println("如果报错的话："+shop.getId());
-			String pic=shopimageService.getImageListbyType("首页展示", shop.getId()).get(0).getHref();	
+		     System.out.println("如果报错的话："+shop.getId());
+			String pic=shopimageService.getImageListbyType("1", shop.getId()).get(0).getHref();	
 		    //获取商家的评分信息和收藏人数
             System.out.println("pic:"+pic);
 		    List<Score> scoreList=scoreService.getScorebySid(shop.getId());
@@ -301,12 +302,13 @@ public class ProductTimerTask extends TimerTask{
 		   double average=0.0;//平均法
 		   int i=0;//消费次数也是打分次数
 		   int j=0;//评论数
+		   BigDecimal a=new BigDecimal(1);		  
 		   for(Employee employee:company.getEmployeeSet()){
 		      for(Score score:scoreService.getScoreByEid(employee.getId(),shop.getId(),now,lastMonth)){
 		    	 average+=score.getScorenumber();
 		    	 i++;
 		      }
-		      for(Comments comments:commentsService.get(employee.getId(), shop.getId(), now, lastMonth,1)){
+		      for(Comments comments:commentsService.get(employee.getId(), shop.getId(), now, lastMonth,a)){
 		    	  
 		    	  j++;
 		    	  

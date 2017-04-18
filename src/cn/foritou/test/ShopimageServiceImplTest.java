@@ -24,8 +24,12 @@ public class ShopimageServiceImplTest {
 	@Test
 	public void testgetImageList() {
 		List<Shopimage> imageList=shopimageService.getImageList(5);
-		System.out.println(imageList.get(0).getHref());
-		List<Shopimage> imageList2=shopimageService.getImageListbyType("介绍展示", 22);
-		System.out.println(imageList2.get(0).getHref());
+		/*System.out.println(imageList.get(0).getHref());
+		List<Shopimage> imageList2=shopimageService.getImageListbyType("1", 5);
+
+		
+		System.out.println(imageList2.get(0).getHref());*/
+		List<Shopimage> imageList3=shopimageService.getImageListWithPage(5,"1","10");
+		System.out.println(imageList3.get(0).getHref());
 	}
 }

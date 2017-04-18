@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+ <!--  <meta http-equiv="refresh" content="0;url=score_getSumScore.action"/> -->
 <%@ include file="/public/head.jspf" %>
 <link href="${foritou }/company/css/detail.css" rel="stylesheet" type="text/css"/>
 <link href="${foritou }/company/css/shophead.css" rel="stylesheet" type="text/css"/>
@@ -326,39 +327,51 @@ background:#fff;
         </div>
        <div class="content-right">
            <div class="content-right-top">
-           <span>
-           </span>
+             请选择报表类型：
+				    <select id="sale">
+				        <option value="score_getSumScore.action">商家分数</option>
+				    </select>   
+		    类型：
+		    <select id="type">
+		        <option value="bar">柱状型</option>
+		        <option value="line">线型</option>
+		        <option value="pie">饼状型</option>
+		    </select>
+		    <input type="button" id="submit" value="查询">
+		    <div id="chart_container">Loading Chart...</div>
            </div>
            <div class="content-right-bottom" style="border:none;">
-               <div id="graph">Loading graph...</div>
-			<script type="text/javascript">
-				var myData = new Array(['KFC', 5], ['季季红', 4], ['川友火锅', 3.5], ['金典蛋糕', 4], ['壹米寿司', 2.5], ['北京烤鸭', 4], ['健身房', 3]);
-				var colors = ['#FF6537', '#FF6537', '#FF6537', '#FF6537', '#FF6537', '#FF6537', '#FF6537'];
-				var myChart = new JSChart('graph', 'bar');
-				myChart.setDataArray(myData);
-				myChart.colorizeBars(colors);
-				myChart.setTitle('员工打分');
-				myChart.setTitleColor('#8E8E8E');
-				myChart.setAxisNameX('商家名称');
-				myChart.setAxisNameY('分数');
-				myChart.setAxisColor('#c6c6c6');
-				myChart.setAxisWidth(1);
-				myChart.setAxisNameColor('#9a9a9a');
-				myChart.setAxisValuesColor('#939393');
-				myChart.setAxisPaddingTop(60);
-				myChart.setAxisPaddingLeft(100);
-				myChart.setAxisPaddingBottom(60);
-				myChart.setTextPaddingBottom(20);
-				myChart.setTextPaddingLeft(55);
-				myChart.setTitleFontSize(11);
-				myChart.setBarBorderWidth(0);
-				myChart.setBarSpacingRatio(50);
-				myChart.setBarValuesColor('#737373');
-				myChart.setGrid(false);
-				myChart.setSize(616, 321);
-				myChart.setBackgroundImage('chart_bg.jpg');
-				myChart.draw();
-			</script>
+              
+	       <script type="text/javascript">
+        $(function(){
+            $("#submit").click(function(){
+                var colorArr = ['#FF6537','#FF6537','#FF6537','#FF6537','#FF6537','#FF6537','#FF6537','#FF6537','#FF6537','#FF6537'];
+                //发送Ajax请求
+                $.post($("#sale").val(), function(data){
+
+                    var myChart = new JSChart('chart_container', $("#type").val(), '');
+                    myChart.setDataArray(data);
+                    myChart.colorize(colorArr.slice(0,data.length));//选择几个就显示几个
+                    myChart.setSize(600, 400);
+                    myChart.setBarValues(false);
+                    myChart.setBarSpacingRatio(45);
+                    myChart.setBarOpacity(1);
+                    myChart.setBarBorderWidth(1);
+                    myChart.setTitle('商家打分表');
+                    myChart.setTitleFontSize(10);
+                    myChart.setTitleColor('#FF6537');
+                    myChart.setAxisValuesColor('#FF6537');
+                    myChart.setAxisNameX('商家名称', false);
+                    myChart.setAxisNameY('分数', true);
+                    myChart.setGridOpacity(0.8);
+                    myChart.setAxisPaddingLeft(50);
+                    myChart.setAxisPaddingBottom(40);
+                    myChart.set3D(true);
+                    myChart.draw();
+                    }, "json");
+            });
+        });
+    </script>
            </div>
            
        </div>

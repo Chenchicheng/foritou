@@ -1,6 +1,9 @@
 package cn.foritou.model;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+
+import com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV;
 
 /**
  * Comments entity. @author MyEclipse Persistence Tools
@@ -16,7 +19,7 @@ public class Comments implements java.io.Serializable {
 	private Timestamp date;
 	private String comment;
 	private String reply;
-	private Integer state;
+	private BigDecimal state;
 
 	// Constructors
 
@@ -25,7 +28,7 @@ public class Comments implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Comments(Employee employee,Shop shop, String comment,String reply,Timestamp date,Integer state) {
+	public Comments(Employee employee,Shop shop, String comment,String reply,Timestamp date,BigDecimal state) {
 		this.employee=employee;
 		this.shop=shop;
 		this.date = date;
@@ -80,11 +83,11 @@ public class Comments implements java.io.Serializable {
 		this.comment = comment;
 	}
 
-	public Integer getState() {
+	public BigDecimal getState() {
 		return this.state;
 	}
 
-	public void setState(Integer state) {
+	public void setState(BigDecimal state) {
 		this.state = state;
 	}
 

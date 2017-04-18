@@ -111,9 +111,9 @@ $("#ff").form("reset");
 	
 	<div>
     <select id="selectType" class="easyui-combobox" name="type" style="width:200px;">     
-    <option value="介绍展示">介绍展示</option> 
-    <option value="首页展示">首页展示</option>   
-    <option value="展示">展示图</option>   
+    <option value="2">介绍展示</option> 
+    <option value="1">首页展示</option>   
+    <option value="3">展示图</option>   
     </select>  
     </div>
 	<div>

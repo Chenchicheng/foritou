@@ -26,7 +26,7 @@ public class CollectionAction extends BaseAction<Collection> {
 	    }else{
 	    	 model.setCompany(company);
 	         model.setShop(shop);
-	         model.setPic(shopimageService.getImageListbyType("展示", shop.getId()).get(0).getHref());
+	         model.setPic(shopimageService.getImageListbyType("3", shop.getId()).get(0).getHref());
 	         model.setCollectdate(new Timestamp(System.currentTimeMillis()));
 	         collectionService.save(model);
 	         Collection collection=(Collection)collectionService.check(company.getId(),shop.getId());

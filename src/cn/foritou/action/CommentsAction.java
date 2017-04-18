@@ -18,6 +18,8 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.opensymphony.xwork2.ActionContext;
+
 import cn.foritou.model.Collection;
 import cn.foritou.model.Comments;
 import cn.foritou.model.Company;
@@ -34,7 +36,7 @@ public class CommentsAction extends BaseAction<Comments>  {
 		model.setShop(shopService.get(sid));
 		model.setEmployee(employeeService.get(eid));
 	    model.setDate(new Timestamp(System.currentTimeMillis()));
-	    model.setState(1);
+	    model.setState(model.getState());
 	    commentsService.save(model);
 	    return "success";
 	}
@@ -44,7 +46,7 @@ public class CommentsAction extends BaseAction<Comments>  {
 		System.out.println("进入");
 		Shop shop=(Shop) session.get("shop");
 		jsonList = commentsService.getBysid(shop.getId());
-		return "jsonList";
+		return "jsonlist";
 		/*List<Comments> list = commentsService.getBysidWithPage(shop.getId(),page,rows);
 		this.toBeJson(list, commentsService.getCommentsTotal(shop.getId()));
 		return null;*/
@@ -116,7 +118,23 @@ public class CommentsAction extends BaseAction<Comments>  {
 	}
 	
 
-
+    public String queryGood(){
+    	 List<Object> jsonList = commentsService.findGoodComments();
+	 	    ActionContext.getContext().getValueStack().push(jsonList);
+	 		return "jsonList";
+    }
+    public String queryGeneral(){
+   	 List<Object> jsonList = commentsService.findGeneralComments();
+	    ActionContext.getContext().getValueStack().push(jsonList);
+		return "jsonList";
+   }
+	
+    public String queryBad(){
+   	 List<Object> jsonList = commentsService.findBadComments();
+	    ActionContext.getContext().getValueStack().push(jsonList);
+		return "jsonList";
+   }
+	
 	
 	
 	

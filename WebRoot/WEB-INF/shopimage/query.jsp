@@ -158,10 +158,7 @@ $('#dg').datagrid({
         //用来格式化当前列的值，返回的是最终的数据
         formatter:function(value,row,index){
         return "<img width='100' height='60' src='/foritou/image/shop/"+value+"'></img>";
-        
-        
-        
-        }
+    }
       
         },
          

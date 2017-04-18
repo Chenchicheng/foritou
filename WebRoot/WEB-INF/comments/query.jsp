@@ -207,7 +207,7 @@ $('#dg').datagrid({
            return "<span title="+value+">"+"好评"+"</span>";
         }else if(value==2){
         return "<span title="+value+">"+"中评"+"</span>";
-        }else{
+        }else if(value==3){
         return "<span title="+value+">"+"差评"+"</span>";
         }
           

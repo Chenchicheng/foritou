@@ -82,7 +82,7 @@ public String wxShopXQ(){
 		Usernotes usernotes=usernotesService.querybySid(model.getId());
 		String jieshao=shop.getDescrible();
 		List<String> imageList=new ArrayList<String>();
-		for(Shopimage image:shopimageService.getImageListbyType("介绍展示", shop.getId())){
+		for(Shopimage image:shopimageService.getImageListbyType("2", shop.getId())){
 			imageList.add("http://localhost:8080:/foritou/image/shop/"+image.getHref());
 		}
 		pageMap.put("usernotes", usernotes);
@@ -303,7 +303,7 @@ System.out.println("经度："+longitude);
 	pageMap.put("shop", shop);
     
 	List<String> imageList=new ArrayList<String>();
-	for(Shopimage image: shopimageService.getImageListby(shop.getId(),"首页展示", 1, 4)){
+	for(Shopimage image: shopimageService.getImageListby(shop.getId(),"1", 1, 4)){
 		imageList.add("http://localhost:8080:/foritou/image/shop/"+image.getHref());
 	}
 	
@@ -329,9 +329,9 @@ public String get(){
 		}
 	}
 	session.put("shopLook",shop);
-	session.put("dimageList", shopimageService.getImageListby(shop.getId(),"首页展示", 1, 4));
+	session.put("dimageList", shopimageService.getImageListby(shop.getId(),"1", 1, 4));
 	//获取商家介绍时的图片
-	session.put("jimageList", shopimageService.getImageListbyType("介绍展示", shop.getId()));
+	session.put("jimageList", shopimageService.getImageListbyType("2", shop.getId()));
 	//获取商家的折扣信息
 	session.put("discount",discountService.getDiscount(shop.getId(), 1));//默认显示规模为1(0~50)人的规模		
 	//获取上家的评分信息和收藏人数
@@ -405,9 +405,9 @@ Shop shop=(Shop) session.get("shop");
 //这里是判断是否登录
 //地图上的展示
 //获取展示的图片
-session.put("dimageList", shopimageService.getImageListby(shop.getId(),"首页展示", 1, 4));
+session.put("dimageList", shopimageService.getImageListby(shop.getId(),"1", 1, 4));
 //获取商家介绍时的图片
-session.put("jimageList", shopimageService.getImageListbyType("介绍展示", shop.getId()));
+session.put("jimageList", shopimageService.getImageListbyType("2", shop.getId()));
 //获取商家的折扣信息
 session.put("discount",discountService.getDiscount(shop.getId(), 1));//默认显示规模为1(0~50)人的规模		
 //获取上家的评分信息和收藏人数

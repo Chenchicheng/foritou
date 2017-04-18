@@ -130,12 +130,14 @@
 </action>
 <action name="score_*" class="scoreAction" method="{1}">
 <result type="json"></result>
+<result name="jsonList" type="json" ></result>
 <result name="success" type="redirect">/mobileweb/setComments.jsp</result>
 </action>
 <action name="comments_*" class="commentsAction" method="{1}">
+<result name="jsonList" type="json"></result>
 <result type="json"></result>
 <result name="success" type="redirect">/mobileweb/setComments.jsp</result>
-<result name="jsonList" type="json">
+<result name="jsonlist" type="json">
 <param name="root">jsonList</param>
 <param name="excludeProperties">
 <!-- [0].account,[1].pass -->
@@ -145,8 +147,6 @@
 <result name="stream" type="stream">
 <param name="inputName">inputStream</param>
 </result>
-
-
 </action>
 <action name="collection_*" class="collectionAction" method="{1}">
 <result name="login" type="redirect">/company/login.jsp</result>

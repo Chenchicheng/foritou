@@ -17,4 +17,6 @@ public List<Score> getScorebySid(int sid);
 public Long getCountbyShop(Shop shop);
 //通过eid获取分数，获取平均分
 public List<Score> getScoreByEid(int eid,int sid,Timestamp now ,Timestamp lastMonth);
+
+public List<Object> getSumScore();
 }

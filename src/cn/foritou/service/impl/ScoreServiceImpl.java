@@ -3,6 +3,7 @@ package cn.foritou.service.impl;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 
 import cn.foritou.model.Discount;
@@ -40,5 +41,14 @@ public class ScoreServiceImpl extends BaseServiceImpl<Score>  implements ScoreSe
                  .setTimestamp("now", now)
                  .setTimestamp("lastMonth", lastMonth)
 				.list();
+	}
+	@Override
+	public List<Object> getSumScore() {
+		String sql =  "select s.name as shopname,sum(scorenumber) as sum from score c "+ 
+				  "left outer join shop s on s.id = c.sid "+
+				  "group by sid"; 
+		 Query query = getSession().createSQLQuery(sql);
+			return query.list();
+	
 	}
 }
